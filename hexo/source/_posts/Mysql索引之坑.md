@@ -8,33 +8,31 @@ tags:
 ---
 
 # Mysql索引之坑
-![](Mysql索引之坑/15620576632595.jpg)
 
-查看mysql慢日志，发现命中条数蛮多，于是找下是否是索引的问题
+注：部分数据做了处理
+
+查看mysql慢日志
+
+![](Mysql索引之坑/15620576632595.png)
+
+发现命中条数蛮多，于是找下是否是索引的问题
+
+sql大意是根据店和菜谱id获取该菜谱下的所有菜
+
+```sql
+select * from t_mme where eid = ? and menu_id = ?
+```
 
 ## 分析
 
-1. 查看表结构
-`show create table multiple_menu_element;`
+1.查看表结构 `show create table t_mme;`
 
 ```sql
-CREATE TABLE `multiple_menu_element` (
+CREATE TABLE `t_mme` (
         `id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '主键',
-        `entity_id` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '实体id',
-        `multiple_menu_id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '多菜单主键',
-        `menu_id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '菜品主键',
-        `use_default_price_switch` tinyint(4) NOT NULL COMMENT '是否使用默认价格:0.否 1.是',
-        `price` decimal(18,2) NOT NULL COMMENT '价格',
-        `member_price` decimal(18,2) NOT NULL COMMENT '会员价',
-        `ext` varchar(5000) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'json格式扩展属性，目前只有规格价格，格式如下： {"specPrice":{"123":123,"345":123}',
-        `is_valid` tinyint(4) NOT NULL COMMENT '是否有效:0.失效 1有效',
-        `create_time` bigint(20) NOT NULL COMMENT '创建时间',
-        `op_time` bigint(20) NOT NULL COMMENT '修改时间',
-        `last_ver` int(11) NOT NULL COMMENT '版本号',
-        PRIMARY KEY (`id`),
-        KEY `idx_eid_menuId` (`entity_id`,`menu_id`),
-        KEY `idx_eid_multipleMenuId_menuId` (`entity_id`,`multiple_menu_id`,`menu_id`),
-        KEY `idx_eid_opTime` (`entity_id`,`op_time`)
+        `eid` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '实体id',
+        `menu_id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '菜单id',
+        `item_id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '菜id',
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='菜单商品关联表';
 ```
 
@@ -44,9 +42,9 @@ CREATE TABLE `multiple_menu_element` (
 看索引感觉没问题，难道是自己对索引的理解一直有问题。于是explain下
 ```sql
 #根据菜谱id查
-EXPLAIN select count(0) from multiple_menu_element  WHERE entity_id = '00240950'  and multiple_menu_id = '00240950647f61f40164ac3e0cf91717';
+EXPLAIN select count(0) from t_mme  WHERE eid = 'xxx'  and menu_id = 'xxx';
 #根据菜id查
-EXPLAIN select  count(0) from multiple_menu_element  WHERE entity_id = '00240950'  and menu_id = '00240950647f61f40164ac3e0cf91717';
+EXPLAIN select  count(0) from t_mme  WHERE eid = 'xxx'  and item_id = 'xxx';
 ```
 
 ![](Mysql索引之坑/15620583481702.jpg)
@@ -62,12 +60,12 @@ EXPLAIN select  count(0) from multiple_menu_element  WHERE entity_id = '00240950
 
 1.索引优化，利用`force index`语法强制使用某个索引，不要让mysql优化器去选择
 ```sql
-EXPLAIN select count(multiple_menu_id) from multiple_menu_element  force index(idx_eid_multipleMenuId_menuId) WHERE entity_id = '00240950'  and multiple_menu_id = '00240950647f61f40164ac3e0cf91717' ;
+EXPLAIN select count(menu_id) from t_mme  force index(idx_eid_menuId_itemId) WHERE eid = 'xxx'  and menuId = 'xxx' ;
 ```
 
 2.索引统计信息重建
 ```sql
-analyze table multiple_menu_element;
+analyze table t_mme;
 ```
 
 ## 参考
