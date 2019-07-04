@@ -17,7 +17,8 @@
     <%
     let tagWordArr = [];
     site.tags.map(function(tag) {
-        tagWordArr.push({'text': tag.name, 'weight': tag.length, 'link': tag.permalink});
+        // tagWordArr.push({'text': tag.name, 'weight': tag.length, 'link': tag.permalink});
+        tagWordArr.push({'text': tag.name, 'weight': tag.length});
     });
 
     let tagWords = JSON.stringify(tagWordArr);
