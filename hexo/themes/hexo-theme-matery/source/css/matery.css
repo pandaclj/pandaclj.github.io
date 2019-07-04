@@ -124,7 +124,7 @@ pre[class*="language-"] {
 code[class*="language-"],
 pre[class*="language-"] {
     color: #e8eaf6;
-    white-space: pre-wrap !important;
+    /*white-space: pre-wrap !important;*/
 }
 
 b,
@@ -363,9 +363,9 @@ header .go-back i {
     height: 40vh !important;
 }
 
-.bg-cover:after {
-    -webkit-animation: rainbow 60s infinite;
-    animation: rainbow 60s infinite;
+.auto-cover:after {
+    -webkit-animation: rainbow 120s infinite;
+    animation: rainbow 120s infinite;
 }
 
 .bg-cover:before, .bg-cover:after {

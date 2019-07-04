@@ -60,7 +60,7 @@ var coverPostsCount = coverPosts.length;
     </div>
     <% } %>
 
-    <div class="carousel-item red white-text bg-cover about-cover">
+    <div class="carousel-item red white-text bg-cover about-cover auto-cover">
         <div class="container">
             <%- partial('_partial/bg-cover-content') %>
 
@@ -108,7 +108,7 @@ var coverPostsCount = coverPosts.length;
         var coverImg = post.coverImg ? post.coverImg
                 : (post.img ? post.img : featureImages[Math.abs(hashCode(post.title) % imgCount)]);
     %>
-    <div class="carousel-item amber white-text carousel-post bg-cover"
+    <div class="carousel-item amber white-text carousel-post bg-cover auto-cover"
             style="background-image: url('<%- coverImg %>');">
         <div class="container">
             <div class="row">
