@@ -377,12 +377,12 @@ $(function () {
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Mysql索引之坑
-查看mysql慢日志，发现命中条数蛮多，于是找下是否是索引的问题
-分析
-查看表结构show create table multiple_menu_element;
+                                Mysql索引之坑注：部分数据做了处理
+查看mysql慢日志
 
-CREATE TABLE `multiple_menu
+发现命中条数蛮多，于是找下是否是索引的问题
+sql大意是根据店和菜谱id获取该菜谱下的所有菜
+select * from t_mme where eid = ? and men
                             
                         </div>
                         <div class="publish-info">
@@ -430,7 +430,7 @@ CREATE TABLE `multiple_menu
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">486</span>
+                <span class="white-color">389</span>
              -->
 
             
