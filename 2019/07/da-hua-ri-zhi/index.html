@@ -1,0 +1,1070 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="大话日志, Java Panda">
+    <meta name="description" content="大话日志历史相信大家都听说过log4j、logback、JUL(java.util.logging)、tinylog以及JCL(commons-logging)和slf4j，可能大家都和我一样，接触最多的就是log4j和logback，很多">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>大话日志 | Panda&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Panda's Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Panda's Blog</div>
+        <div class="logo-desc">
+            
+            自动驱动，自我成长
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')"> -->
+    <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/svg/Confetti-Doodles.svg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        大话日志
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/log/" target="_blank">
+                                <span class="chip bg-color">log</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/分享/" class="post-category" target="_blank">
+                                分享
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-07-18
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        2.5k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        9 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="大话日志"><a href="#大话日志" class="headerlink" title="大话日志"></a>大话日志</h1><h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>相信大家都听说过<code>log4j</code>、<code>logback</code>、<code>JUL(java.util.logging)</code>、<code>tinylog</code>以及<code>JCL(commons-logging)</code>和<code>slf4j</code>，可能大家都和我一样，接触最多的就是log4j和logback，很多人的认知甚至更多的只是使用层面，可能觉得日志也没什么，会用就行，也不需要特别研究，那么在这篇文章中，我就来讲一讲Java混乱的日志体系以及我最近做的对日志的一些改造。<br>先来看看下面这张图，有个直观的印象：</p>
+<p><img src="/2019/07/da-hua-ri-zhi/15633313202449.jpg" alt></p>
+<p>其实很早的时候，JDK是不提供日志工具类的，所以大家在打日志的时候基本上都是用</p>
+<pre class=" language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"这是日志"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"这是日志"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>`</code></pre>
+<p>但这种方式只会在控制台输出，并且不能将内容按自己的需求格式化，而且性能也不高。后来有个伟大的程序员就写了<code>log4j</code>，并且是开源的，因为<code>log4j</code>特别好用迅速受到了大家的欢迎。SUN公司对<code>log4j</code>的出现是既羡慕又恨，于是在jdk1.4之后推出了<code>JUL</code>，但API却与<code>log4j</code>大不相同。这就让使用者很难受，也很难做切换，于是乎apache推出了<code>JCL</code>。<br><img src="/2019/07/da-hua-ri-zhi/15633322171301.jpg" alt><br><code>JCL</code>提供的是一套接口，并没有实现。<code>log4j</code>和<code>JUL</code>都可以作为它的实现，优先找<code>log4j</code>，然后找<code>JUL</code>，如果都找不到的话<code>JCL</code>也有自己的默认实现<code>simpleLog</code>。<br><code>JCL</code>的出现基本实现了一统江湖，甚至<code>Spring</code>也依赖了<code>JCL</code>。可<code>log4j</code>的作者还是觉得它不够优秀，于是整出了<code>SLF4J</code>，并且写了一套更优秀的实现<code>logback</code>，其他的实现诸如<code>log4j</code>、<code>JUL</code>为其提供适配器。<br><img src="/2019/07/da-hua-ri-zhi/15633348531225.jpg" alt></p>
+<h2 id="日志架构"><a href="#日志架构" class="headerlink" title="日志架构"></a>日志架构</h2><p>我们对日志最直接的三个需求：</p>
+<ol>
+<li>能输出到不同的地方，比如控制台，文件，网络</li>
+<li>能对日志的内容做格式化输出，输出成TEXT、XML、HTML、JSON等</li>
+<li>能对不同的class、package配置不同的日志输出，且有不同级别的日志输出</li>
+</ol>
+<p><img src="/2019/07/da-hua-ri-zhi/15633360788894.jpg" alt></p>
+<p>Appender用于定义日志输出地，Formatter用于定义日志输出格式化方式，Logger用于定义日志实体，可以根据根据class或者package获取，并提供不同级别的日志输出能力。组件内部通过LoggingEvent进行日志事件传递。</p>
+<h2 id="logback"><a href="#logback" class="headerlink" title="logback"></a>logback</h2><p>这里重点介绍下<code>logback</code>，选用<code>logback</code>，主要还是由于<code>logback</code>比<code>log4j</code>做了更多的优化，并且<code>logback</code>算是<code>slf4j</code>的亲儿子，直接实现了<code>slf4j</code>的接口，并不需要适配层。</p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span>Logger<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span>LoggerFactory<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld1</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Logger logger <span class="token operator">=</span> LoggerFactory<span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token string">"com.mysql"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span> <span class="token attr-name">scan</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span> <span class="token attr-name">scanPeriod</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60 seconds<span class="token punctuation">"</span></span> <span class="token attr-name">debug</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>PATTERN<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{32}.%M:%L %msg%n%xException%n<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>CHARSET<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>LOG_PATH<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/opt/logs/spring-boot<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+    <span class="token comment" spellcheck="true">&lt;!--请求日志--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ACCESS_LOG<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.twodfire.log.appender.AsyncRollingFileAppender<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>queueSize</span><span class="token punctuation">></span></span>512<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>queueSize</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file</span><span class="token punctuation">></span></span>${LOG_PATH}/access.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>file</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rollingPolicy</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.TimeBasedRollingPolicy<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fileNamePattern</span><span class="token punctuation">></span></span>${LOG_PATH}/bak/access.%d{yyyy-MM-dd}.log.zip<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fileNamePattern</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maxHistory</span><span class="token punctuation">></span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maxHistory</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rollingPolicy</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ch.qos.logback.classic.encoder.PatternLayoutEncoder<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">></span></span>${PATTERN}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>charset</span><span class="token punctuation">></span></span>${CHARSET}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>charset</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>immediateFlush</span><span class="token punctuation">></span></span>${log.immediateFlush}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>immediateFlush</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ACCESS<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>INFO<span class="token punctuation">"</span></span> <span class="token attr-name">additivity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ACCESS_LOG<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ALERT_MONITOR<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logger</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>level</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${log.root.level}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--只记录INFO及以下级别的--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>FILE_LOG<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--只记录WARN级别的--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>WARN<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--只记录error级别的--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ERROR<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ALERT_MONITOR<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>root</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>  </code></pre>
+<h3 id="初始化解析过程"><a href="#初始化解析过程" class="headerlink" title="初始化解析过程"></a>初始化解析过程</h3><p><img src="/2019/07/da-hua-ri-zhi/15633685915229.jpg" alt></p>
+<blockquote>
+<ol>
+<li>利用JDK自带的SPI<code>ServiceLoader</code>加载实现类</li>
+<li>如果发现多个实现类，只会选取第一个，并且会打印日志”Class path contains multiple SLF4J providers.“ - <code>org.slf4j.LoggerFactory#bind</code></li>
+<li>如果找不到实现类，则会报”No SLF4J providers were found.”</li>
+<li>找资源顺序  <code>系统变量logback.configurationFile</code> -&gt; <code>logback-test.xml</code> -&gt; <code>logback.groovy</code> -&gt; <code>logback.xml</code></li>
+<li>可以看到初始化是发生在<code>LoggerFactory</code>获取logger的时候发生的，这个过程是比较耗时的，所以最好把这个过程放在应用启动的过程中</li>
+</ol>
+</blockquote>
+<h3 id="日志打印过程"><a href="#日志打印过程" class="headerlink" title="日志打印过程"></a>日志打印过程</h3><p><img src="/2019/07/da-hua-ri-zhi/logback%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA%20-2-.jpg" alt></p>
+<blockquote>
+<ol>
+<li>TurboFilter和Filter都为过滤器，但TurboFilter的级别为全局，而Filter为Appender级，TurboFilter是在日志事件初始化前发生，并且每次请求都会调用，所以TurboFilter拦截拥有更高的性能。</li>
+<li>Logger是树状结构，比如”com”是”com.a”的父级，可以通过additivity终止循环。</li>
+<li>会先进入TurboFilter再判断level等级</li>
+</ol>
+</blockquote>
+<h2 id="改造背景"><a href="#改造背景" class="headerlink" title="改造背景"></a>改造背景</h2><h3 id="架构背景"><a href="#架构背景" class="headerlink" title="架构背景"></a>架构背景</h3><ol>
+<li><p>在单机没法无限扩展，并且随着配置的升级价钱也是呈现指数增长，所以机器的横向扩展变得尤为重要，也是为了提供更好的可靠性。但这势必会引起一个问题，对我们通过日志来定位问题变得尤为困难，集群内的机子越多，问题越明显。所以很多公司会选用诸如<code>ELK</code>的架构，<code>logstash</code>做日志收集，<code>ElasticSearch</code>做日志存档、检索，<code>Kibana</code>做日志呈现。所以，为了方便在es上建索引从而使我们能在<code>Kibana</code>上检索，于是就定义了一些日志打印规范。</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>检索方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[tag。]msg</td>
+<td>am_marker:[请求日志]</td>
+</tr>
+<tr>
+<td>[tag]。json:{“otherMsg”:”msg”,”name”:”小明”}</td>
+<td>am_marker:[请求日志] json.name:小明</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>配合RPC框架dubbo，分布式调用链做一些日志的统一打印处理,追踪</p>
+</li>
+<li><p>可以通过分布式配置中心动态调整日志，一方面能减少日志量，也能方便线上排查问题</p>
+</li>
+</ol>
+<h3 id="项目现状"><a href="#项目现状" class="headerlink" title="项目现状"></a>项目现状</h3><ol>
+<li>日志重复打到<code>AlertMonitor</code>,其他文件也是；</li>
+<li>很多本该打INFO级别的日志为了能在线上环境打印，打成ERROR级别；</li>
+<li>慢日志粒度不够细，不方便排查问题；</li>
+<li>测试环境的日志和正式环境的日志不统一；</li>
+<li>太多没用的日志配置仍然遗留在代码中，造成混乱；</li>
+<li>ERROR日志会同时打印出入参，但架构那边为了控制日志大小会做截取，导致有用的信息并不能在kibana上显示，仍然需要登录机子去查看具体报错原因，不方便排查；</li>
+<li>日志归类比较混乱；</li>
+<li>不能动态调整日志级别以及logger；</li>
+<li>Appender可以改造成异步方式提高性能；</li>
+<li>日志参数拼接现象严重，这也会带来一些性能上的损失；</li>
+<li>解决jar包冲突，升级到新版本，原来的1.1.2不能使用<code>SizeAndTimeBasedRollingPolicy</code></li>
+</ol>
+<h2 id="改造过程"><a href="#改造过程" class="headerlink" title="改造过程"></a>改造过程</h2><h3 id="此次改造解决了哪些问题"><a href="#此次改造解决了哪些问题" class="headerlink" title="此次改造解决了哪些问题"></a>此次改造解决了哪些问题</h3><ol>
+<li>利用静态代理提供了和<code>slf4j</code>一样的API，只需要修改下包路径就能一键切换，也方便了扩展以实现一些特定需求；</li>
+<li>用占位符替换的方式来输出日志或者在打印日之前加上级别判断，减少不必要的性能损失；</li>
+<li>自定义<code>LessThanLevelFilter</code>实现logs.log打印WARN级别以下日志，warn.log打印WARN级别日志，error.log打印ERROR级别日志；</li>
+<li>部分日志量比较大的日志用<code>SizeAndTimeBasedRollingPolicy</code>策略，按文件大小或者时间来切割文件；</li>
+<li><code>Appender</code>采用异步的方式，这里使用了封装好的<code>com.twodfire.log.appender.AsyncRollingFileAppender</code>，<code>logback</code>也提供了<code>RollingFileAppender</code>和<code>AsyncAppender</code>两者组合来达到相同的目的，使用异步需要注意队列的大小设置；</li>
+<li>提供了与<code>dubbo</code>、<code>aspect</code>、<code>disconf</code>等的集成，开箱即用；</li>
+<li>日志分类清晰，重要日志全部对接<code>kibana</code>，定位问题更容易；</li>
+</ol>
+<h3 id="日志梳理"><a href="#日志梳理" class="headerlink" title="日志梳理"></a>日志梳理</h3><p>日志该怎么打，打的不好不但不利于排查问题，甚至会带来磁盘空间的浪费。在这，我对日志做一些分类。</p>
+<table>
+<thead>
+<tr>
+<th>日志类型</th>
+<th>名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>请求日志</td>
+<td>ACCESS</td>
+<td>用来记录请求调用的接口，入参，请求的IP等请求信息，条件允许可以加上响应内容</td>
+</tr>
+<tr>
+<td>业务日志</td>
+<td>BIZ</td>
+<td>用来记录业务相关的日志，不同的业务可以用tag区分</td>
+</tr>
+<tr>
+<td>数据库日志</td>
+<td>SQL</td>
+<td>用来记录数据执行的SQL</td>
+</tr>
+<tr>
+<td>告警日志</td>
+<td>ALERT_MONITOR</td>
+<td>日志搜集器会搜集此文件的日志用于存储到es，并在kibana显示</td>
+</tr>
+<tr>
+<td>慢日志</td>
+<td>LONG_TIME</td>
+<td>COBAR慢日志 <br> CODIS慢日志 <br>DUBBO慢日志</td>
+</tr>
+<tr>
+<td>ROCKET_MQ日志</td>
+<td>ROCKET_MQ</td>
+<td>rocketmq的消息日志，主要延用了原来的日志类型，也可以定义为MQ，然后用tag区分，类似慢日志</td>
+</tr>
+<tr>
+<td>远程调用日志</td>
+<td>REMOTE</td>
+<td>用来记录调用其他服务的日志</td>
+</tr>
+<tr>
+<td>其他日志</td>
+<td>FILE_LOG</td>
+<td>INFO及以下级别</td>
+</tr>
+<tr>
+<td>其他日志</td>
+<td>WARN</td>
+<td>WARN级别</td>
+</tr>
+<tr>
+<td>其他日志</td>
+<td>ERROR</td>
+<td>ERROR级别</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>日志间用traceId做串联，在<code>kibana</code>中的索引为<code>json.traceId</code></p>
+</blockquote>
+<h3 id="改造方式"><a href="#改造方式" class="headerlink" title="改造方式"></a>改造方式</h3><p><img src="/2019/07/da-hua-ri-zhi/log%E7%B1%BB%E5%9B%BE%20-1-.jpg" alt></p>
+<p><code>Logger</code>提供了日志能力的接口，<code>LoggerSupport</code>提供了日志能力的实现。<code>Logger</code>由<code>LoggerFactroy</code>创建。<code>LoggerCreator</code>已经提供了一些常用的Logger，在使用层面直接使用<code>LoggerCreator</code>就行。</p>
+<p><strong>集成dubbo</strong><br><code>ExceptionFilter</code>负责对异常进行封装<br><code>PrintLogFilter</code>负责日志打印</p>
+<p><strong>集成disconf</strong><br><code>LogConfig</code>负责动态修改日志级别</p>
+<blockquote>
+<p>具体代码就不在这提供了</p>
+</blockquote>
+<h3 id="使用方式-1"><a href="#使用方式-1" class="headerlink" title="使用方式"></a>使用方式</h3><pre class=" language-java"><code class="language-java">LoggerCreator<span class="token punctuation">.</span>LOG_SYS_ERROR<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"日志内容：{}"</span><span class="token punctuation">,</span> <span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+LoggerCreator<span class="token punctuation">.</span>LOG_SYS_ERROR<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"这是日志"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+LoggerCreator<span class="token punctuation">.</span>LOG_SYS_ERROR<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>Maps<span class="token punctuation">.</span><span class="token function">newHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"这是日志"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+LoggerCreator<span class="token punctuation">.</span>LOG_SYS_ERROR<span class="token punctuation">.</span><span class="token function">errorWithTag</span><span class="token punctuation">(</span><span class="token string">"tag"</span><span class="token punctuation">,</span> <span class="token string">"日志内容：{}"</span><span class="token punctuation">,</span> <span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ul>
+<li>控制台报错提示</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">14:19:22,968 |-WARN in ch.qos.logback.classic.encoder.PatternLayoutEncoder@7f36662c - As of version 1.2.0 "immediateFlush" property should be set within the enclosing Appender.
+14:19:22,968 |-WARN in ch.qos.logback.classic.encoder.PatternLayoutEncoder@7f36662c - Please move "immediateFlush" property into the enclosing appender.
+14:19:22,984 |-WARN in ch.qos.logback.classic.encoder.PatternLayoutEncoder@7f36662c - Setting the "immediateFlush" property of the enclosing appender to true</code></pre>
+<blockquote>
+<p>解决方案：很明显是将版本升级到1.2.0以上引起的，将<code>immediateFlush</code>移动至<code>Appender</code>内 - ch.qos.logback.core.encoder.LayoutWrappingEncoder#setImmediateFlush</p>
+</blockquote>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><ul>
+<li>责任链模式 - <code>ch.qos.logback.classic.spi.TurboFilterList</code></li>
+<li>建造者模式 - <code>com.dfire.soa.item.platform.common.log.extension.dubbo.PrintInfo</code></li>
+</ul>
+<h2 id="亮点"><a href="#亮点" class="headerlink" title="亮点"></a>亮点</h2><ol>
+<li><code>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{32}.%M:%L %msg%n%xException%n</code>，logback会解析该字符串，构建一条conver链表，然后从头结点开始逐个解析<br><img src="/2019/07/da-hua-ri-zhi/convert.png" alt></li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.logback.cn/" target="_blank" rel="noopener">logback中文手册</a></li>
+<li><a href="https://disconf.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">disconf文档</a></li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay_part.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wxpay_part.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/09/xiao-mang-guo-nochu-sheng-ri-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="小芒果の出生日记">
+                        
+                        <span class="card-title">小芒果の出生日记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            小芒果の出生日记背景篇&emsp;我，一个普通的不能再普通的杭漂程序猿。我老婆，一个事业单位的工作人员。我，在大部分时间在杭州。我老婆，一直在绍兴。但我们的生活重心都在绍兴，因为家在绍兴。
+检查篇&emsp;从得知老婆怀孕开始，我们的生活就
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/生活日记/" class="post-category" target="_blank">
+                                    生活日记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/小芒果/" target="_blank">
+                        <span class="chip bg-color">小芒果</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/07/mysql-suo-yin-zhi-keng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Mysql索引之坑">
+                        
+                        <span class="card-title">Mysql索引之坑</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Mysql索引之坑注：部分数据做了处理
+查看mysql慢日志
+
+发现命中条数蛮多，于是找下是否是索引的问题
+sql大意是根据店和菜谱id获取该菜谱下的所有菜
+select * from t_mme where eid = ? and men
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/踩坑之路/" class="post-category" target="_blank">
+                                    踩坑之路
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/" target="_blank">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Panda's Blog<br />'
+            + '作者: 陈立江<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">4.9k</span>
+             -->
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <!-- <i class="fa fa-heart-o"></i> -->
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:clj_dream@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=842705148" class="tooltipped" data-tooltip="QQ联系我: 842705148" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

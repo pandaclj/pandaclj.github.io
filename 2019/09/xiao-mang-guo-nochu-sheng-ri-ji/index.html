@@ -4,13 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Mysql索引之坑, Java Panda">
-    <meta name="description" content="Mysql索引之坑注：部分数据做了处理
-查看mysql慢日志
-
-发现命中条数蛮多，于是找下是否是索引的问题
-sql大意是根据店和菜谱id获取该菜谱下的所有菜
-select * from t_mme where eid = ? and men">
+    <meta name="keywords" content="小芒果の出生日记, Java Panda">
+    <meta name="description" content="小芒果の出生日记背景篇&amp;emsp;我，一个普通的不能再普通的杭漂程序猿。我老婆，一个事业单位的工作人员。我，在大部分时间在杭州。我老婆，一直在绍兴。但我们的生活重心都在绍兴，因为家在绍兴。
+检查篇&amp;emsp;从得知老婆怀孕开始，我们的生活就">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +14,7 @@ select * from t_mme where eid = ? and men">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Mysql索引之坑 | Panda&#39;s Blog</title>
+    <title>小芒果の出生日记 | Panda&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -184,14 +180,14 @@ select * from t_mme where eid = ? and men">
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')"> -->
     <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/svg/Confetti-Doodles.svg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Mysql索引之坑
+                        小芒果の出生日记
                     </div>
                 </div>
             </div>
@@ -302,8 +298,8 @@ select * from t_mme where eid = ? and men">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/mysql/" target="_blank">
-                                <span class="chip bg-color">mysql</span>
+                            <a href="/tags/小芒果/" target="_blank">
+                                <span class="chip bg-color">小芒果</span>
                             </a>
                         
                     </div>
@@ -314,8 +310,8 @@ select * from t_mme where eid = ? and men">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/踩坑之路/" class="post-category" target="_blank">
-                                踩坑之路
+                            <a href="/categories/生活日记/" class="post-category" target="_blank">
+                                生活日记
                             </a>
                         
                     </div>
@@ -326,21 +322,21 @@ select * from t_mme where eid = ? and men">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-04
+                    2019-09-15
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        389
+                        2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        6 分
                     </div>
                     
                 
@@ -356,37 +352,64 @@ select * from t_mme where eid = ? and men">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Mysql索引之坑"><a href="#Mysql索引之坑" class="headerlink" title="Mysql索引之坑"></a>Mysql索引之坑</h1><p>注：部分数据做了处理</p>
-<p>查看mysql慢日志</p>
-<p><img src="/2019/07/mysql-suo-yin-zhi-keng/15620576632595.png" alt></p>
-<p>发现命中条数蛮多，于是找下是否是索引的问题</p>
-<p>sql大意是根据店和菜谱id获取该菜谱下的所有菜</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_mme <span class="token keyword">where</span> eid <span class="token operator">=</span> ? <span class="token operator">and</span> menu_id <span class="token operator">=</span> ?</code></pre>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>1.查看表结构 <code>show create table t_mme;</code></p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>t_mme<span class="token punctuation">`</span> <span class="token punctuation">(</span>
-        <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token keyword">COLLATE</span> utf8mb4_unicode_ci <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'主键'</span><span class="token punctuation">,</span>
-        <span class="token punctuation">`</span>eid<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token keyword">COLLATE</span> utf8mb4_unicode_ci <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'实体id'</span><span class="token punctuation">,</span>
-        <span class="token punctuation">`</span>menu_id<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token keyword">COLLATE</span> utf8mb4_unicode_ci <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'菜单id'</span><span class="token punctuation">,</span>
-        <span class="token punctuation">`</span>item_id<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token keyword">COLLATE</span> utf8mb4_unicode_ci <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'菜id'</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8mb4 <span class="token keyword">COLLATE</span><span class="token operator">=</span>utf8mb4_unicode_ci ROW_FORMAT<span class="token operator">=</span>DYNAMIC <span class="token keyword">COMMENT</span><span class="token operator">=</span><span class="token string">'菜单商品关联表'</span><span class="token punctuation">;</span></code></pre>
-<p>2.也可以查看表上的索引 <code>show index from multiple_menu_element;</code><br><img src="/2019/07/mysql-suo-yin-zhi-keng/15620578849311.jpg" alt></p>
-<p>看索引感觉没问题，难道是自己对索引的理解一直有问题。于是explain下</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#根据菜谱id查</span>
-<span class="token keyword">EXPLAIN</span> <span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">from</span> t_mme  <span class="token keyword">WHERE</span> eid <span class="token operator">=</span> <span class="token string">'xxx'</span>  <span class="token operator">and</span> menu_id <span class="token operator">=</span> <span class="token string">'xxx'</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">#根据菜id查</span>
-<span class="token keyword">EXPLAIN</span> <span class="token keyword">select</span>  <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">from</span> t_mme  <span class="token keyword">WHERE</span> eid <span class="token operator">=</span> <span class="token string">'xxx'</span>  <span class="token operator">and</span> item_id <span class="token operator">=</span> <span class="token string">'xxx'</span><span class="token punctuation">;</span></code></pre>
-<p><img src="/2019/07/mysql-suo-yin-zhi-keng/15620583481702.jpg" alt><br>以上为第一条的执行结果，与预期的有出入</p>
-<p>找dba查找原因：发现部分实例上执行是正确的，部分是有问题的，怀疑是索引的统计信息有问题。</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>索引统计有误从而误导了mysql优化器的索引选择</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>1.索引优化，利用<code>force index</code>语法强制使用某个索引，不要让mysql优化器去选择</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">EXPLAIN</span> <span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span>menu_id<span class="token punctuation">)</span> <span class="token keyword">from</span> t_mme  <span class="token keyword">force</span> <span class="token keyword">index</span><span class="token punctuation">(</span>idx_eid_menuId_itemId<span class="token punctuation">)</span> <span class="token keyword">WHERE</span> eid <span class="token operator">=</span> <span class="token string">'xxx'</span>  <span class="token operator">and</span> menuId <span class="token operator">=</span> <span class="token string">'xxx'</span> <span class="token punctuation">;</span></code></pre>
-<p>2.索引统计信息重建</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">analyze</span> <span class="token keyword">table</span> t_mme<span class="token punctuation">;</span></code></pre>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://yq.aliyun.com/articles/502786" target="_blank" rel="noopener">show index from 及analyze table 详解</a></li>
-<li><a href="https://www.cnblogs.com/yycc/p/7338894.html" target="_blank" rel="noopener">mysql explain用法和结果的含义</a></li>
-<li><a href="https://www.cnblogs.com/Alight/p/3906086.html" target="_blank" rel="noopener">MYSQL 分析表、检查表和优化表</a></li>
-</ul>
+                <h1 id="小芒果の出生日记"><a href="#小芒果の出生日记" class="headerlink" title="小芒果の出生日记"></a>小芒果の出生日记</h1><h1 id="背景篇"><a href="#背景篇" class="headerlink" title="背景篇"></a>背景篇</h1><p>&emsp;我，一个普通的不能再普通的杭漂程序猿。我老婆，一个事业单位的工作人员。我，在大部分时间在杭州。我老婆，一直在绍兴。但我们的生活重心都在绍兴，因为家在绍兴。</p>
+<h1 id="检查篇"><a href="#检查篇" class="headerlink" title="检查篇"></a>检查篇</h1><p>&emsp;从得知老婆怀孕开始，我们的生活就开始围绕着小芒果了，虽然此时的她还在肚子里。整个怀孕过程中，大致会经历几个比较重要的检查期，NT -&gt; 唐筛 -&gt; 三维大排畸 -&gt; 四维 -&gt; 糖耐。每一次检查前，心总是被吊着，检查过后就像考完试一样松一口气，当然这个只是暂时的，因为整个孕期都得小心翼翼，这将是一场持久战役。<br>&emsp;第一次和小芒果见面，是去医院检查做B超确定怀孕的那天。那天，小芒果还只是豆子般大小，不过，我们内心都很激动，因为这意味着一个新的生命即将走进我们的生活。第二次比较正式的见面，就是做NT那天了，开心的是NT一次过（可能这也是小芒果最给力的一次了=.=）。遗憾的是，对于小孩的轮廓很模糊，不像其他人做的检查，很清晰。第三次见面，是做四维的时候，因为四维在妇保院没有，我们去的私立医院，而且可以约在周末，于是乎这一次也是我和我老婆一起和小芒果见面的一刻。不过小芒果是白天睡觉，晚上活跃，导致四维我们是最早进去，却最后几个做完，中间不通过后得通过不停地吃东西和爬楼梯来让小芒果活跃起来。好在结果满意，我们也见到了脸蛋肉嘟嘟的小芒果，很开心<br>&emsp;四维过后，差不多6个多月了。之后就要开始进行频繁的产检了。周期越久，产检频次会越高。而且每次都得花蛮长时间，为了让老婆有一次好的检查分娩体验，加上我们这的妇保院也第一次推出了“产科一体化”，在商量之后，我们也是在第一时间报了这个。从之后的经历来看，这个还是值得的。产检无非几个点，观察妈妈的一些生理状况(血压)，观察宝宝的羊水，胎心。之后就是静静地期待小芒果的降临。</p>
+<h2 id="备货篇"><a href="#备货篇" class="headerlink" title="备货篇"></a>备货篇</h2><p>从四维过后，我们就进入了紧张的备货阶段。为此，我们也是查阅了大量的资料。这边我就筛选出一些我们认为有用当然之后也确实用到的（后面也有一些是太突然或者没考虑到而到医院附近的母婴店买的，价格实在是太暴力了）。</p>
+<h3 id="妈妈"><a href="#妈妈" class="headerlink" title="妈妈"></a>妈妈</h3><table>
+<thead>
+<tr>
+<th>时期</th>
+<th>物品</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分娩时</td>
+<td>NB尿不湿一片、中单（产褥垫）、毛巾、纸巾、产妇专用卫生纸、充电宝（多备几个）</td>
+</tr>
+<tr>
+<td>分娩后</td>
+<td>双熊猫卫生纸（硬）、也可以准备软的</td>
+</tr>
+</tbody></table>
+<h3 id="宝宝"><a href="#宝宝" class="headerlink" title="宝宝"></a>宝宝</h3><p>恒温调奶器、奶瓶沥干盒、奶瓶（多备几个）、吸奶器、奶粉、尿不湿（NB备个2,3袋）、妈妈包、宝宝湿巾、宝宝柔纸巾、外出奶粉携带盒</p>
+<h2 id="取名篇"><a href="#取名篇" class="headerlink" title="取名篇"></a>取名篇</h2><p>我们这取名字一来不能跟长辈或者同辈有重字，而来还要根据出生的时辰算出来五行缺啥，缺啥名字上得带上那个字。所以，我们是想了好多备选名字，而且男孩女孩名字都得想。期间还互相嫌弃对方取的名字不好听<code>（^.^）</code>。这个也是尽快想好，等出生后就可以马上确定下来，方便快点去办理一些相关证件。</p>
+<h2 id="分娩篇"><a href="#分娩篇" class="headerlink" title="分娩篇"></a>分娩篇</h2><p>&emsp;由于两地的关系，我基本是每周回家一次。所以当预产期越来越近的时候，我的内心总是很忐忑。我曾想到过无数次老婆突然要生，然后我紧急赶回家的样子。本来也预想着陪产假能刚好和国庆长假衔接，因为预产期是9月中旬。老婆还想着在宝宝出生前还能出去吃一顿烤肉，一顿火锅。可惜，往往理想很美好，现实却啪啪打脸。幸运的是，8·30那晚刚好周五我从杭州回家。然后31日凌晨的时候，老婆突然把我叫醒，说羊水膜破了。虽然，早给了自己一些遇到这些事情怎么应对的策略。可是真的遇到了，我还是很惊慌，就像一只无头绪的苍蝇，到处乱蹿，不知道怎么办。因为我知道，羊水破比见红更紧急，羊水破意味着必须在一定时间内让宝宝出生，不然后果很严重。好在老婆比较镇定，打了120叫救护车（老婆同事接的电话），我紧急准备一些待产的物品，去医院需要用到的东西，证件等（本来这些打算周末整理的，计划不如变化）。等待救护车到来的过程真的很煎熬（然后发现来的医生护士还是我老婆认识的，瞬间安心），话说这还是我第一次坐救护车。<br>&emsp;到了医院急诊，我就负责办理一些入院手续，然后去病房，一直进行胎心监听。期间，羊水不停地流出来，我的心一直悬着。就这样，整夜没睡，第二天一大早又匆匆赶回家取一些忘带的物品（凌晨事发突然，太慌乱了）。到了早晨医生上班后，老婆就准备进入分娩室开始分娩了。而我们，就只能静静地在分娩室外的座位上等着，唯一能知道里面发生什么的只有门口的一块显示屏，上面显示着xxx开了多少指，进行到了第x产程。从早上，等到晚上5点多，看着一个一个婴儿从里面出来，而老婆的状态仍然是待产中，心里越发的着急，同时整个人也是很疲倦。中间的过程就不过多描述了，经历过的都懂。终于，到了18点左右，说开了两指打无痛了，然后家属可以进去了，心里终于安心了点。进去后过了很久，宫缩一直不明显，开指也一直停留在原来的阶段，甚是担心。之后只能通过不断的增加催产素的浓度，减少甚至关掉无痛，开指才慢慢的增加，中间过程就省略了，总之一个结论，母亲很伟大。这个过程，毕生难忘。好在宝宝平安顺利的出生，差一个小时就9月1号了，我知道，她是想上学了<code>（^.^）</code>。</p>
+<h2 id="证件篇"><a href="#证件篇" class="headerlink" title="证件篇"></a>证件篇</h2><table>
+<thead>
+<tr>
+<th>证件</th>
+<th>所需材料</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>准生证</td>
+<td>双方身份证信息</td>
+<td>打算怀孕的时候，就可以去办理准生证了，这个可以在办理</td>
+</tr>
+<tr>
+<td>出生证明</td>
+<td>双方身份证原件，落户户口本，小孩出生信息的一张纸</td>
+<td></td>
+</tr>
+<tr>
+<td>户口</td>
+<td>双方身份证原件，户口本，出生证明</td>
+<td></td>
+</tr>
+<tr>
+<td>接种证</td>
+<td>双方身份证原件，户口本，出生证明，医院打疫苗证明</td>
+<td>乙肝第一针和卡介疫苗，卡介疫苗如果小孩指标不达标，不给打，比如黄疸高，这个后续也可以去地方卫生院办理</td>
+</tr>
+<tr>
+<td>医保</td>
+<td>双方身份证原件，户口本，出生证明</td>
+<td>这个很重要，如果宝宝出生后需要住院，出院后可报销，尽快办理</td>
+</tr>
+</tbody></table>
+<h2 id="爸爸篇"><a href="#爸爸篇" class="headerlink" title="爸爸篇"></a>爸爸篇</h2><p>照顾宝宝最多的三件事：洗奶瓶、换尿布、冲奶粉</p>
+<p>持续更新中。。。</p>
 
             </div>
             <hr/>
@@ -548,9 +571,61 @@ select * from t_mme where eid = ? and men">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/09/xiao-mang-guo-nochu-sheng-ri-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="小芒果の出生日记">
+                        
+                        <span class="card-title">小芒果の出生日记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            小芒果の出生日记背景篇&emsp;我，一个普通的不能再普通的杭漂程序猿。我老婆，一个事业单位的工作人员。我，在大部分时间在杭州。我老婆，一直在绍兴。但我们的生活重心都在绍兴，因为家在绍兴。
+检查篇&emsp;从得知老婆怀孕开始，我们的生活就
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/生活日记/" class="post-category" target="_blank">
+                                    生活日记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/小芒果/" target="_blank">
+                        <span class="chip bg-color">小芒果</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/07/da-hua-ri-zhi/">
                     <div class="card-image">
@@ -568,9 +643,9 @@ select * from t_mme where eid = ? and men">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -588,61 +663,6 @@ select * from t_mme where eid = ? and men">
                     
                     <a href="/tags/log/" target="_blank">
                         <span class="chip bg-color">log</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/07/mysql-suo-yin-zhi-keng/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Mysql索引之坑">
-                        
-                        <span class="card-title">Mysql索引之坑</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Mysql索引之坑注：部分数据做了处理
-查看mysql慢日志
-
-发现命中条数蛮多，于是找下是否是索引的问题
-sql大意是根据店和菜谱id获取该菜谱下的所有菜
-select * from t_mme where eid = ? and men
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/踩坑之路/" class="post-category" target="_blank">
-                                    踩坑之路
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/mysql/" target="_blank">
-                        <span class="chip bg-color">mysql</span>
                     </a>
                     
                 </div>
